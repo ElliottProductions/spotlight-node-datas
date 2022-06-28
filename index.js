@@ -17,7 +17,13 @@ class LinkedList {
     }
     current.next = new Node(val);
   }
-  removeTail(){}
+  removeTail(){
+    let current = this.head;
+    while (current.next.next){
+      current = current.next;
+    }
+    current.next = null;
+  }
 
   getList() {
     const listArr = [];
@@ -36,6 +42,11 @@ console.log(list.head);
 list.add("B");
 console.log(list.getList());
 list.add("C");
+list.add('D');
+console.log(list.getList());
+list.removeTail();
+console.log(list.getList());
+list.removeTail();
 console.log(list.getList());
 
 module.exports = { LinkedList };
